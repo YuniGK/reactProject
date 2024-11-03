@@ -22,12 +22,62 @@ const choice = {
 function App() {
   const [userSelect, setUserSelect] = useState(null);
   const [computerSelect, setComputerSelect] = useState(null);
+  const [result, setResult] = useState('');
 
   const play = (userChoice) => {
     setUserSelect(choice[userChoice]);
 
     let computerChoice = randomChoice();
     setComputerSelect(computerChoice);
+
+    //승부
+    let userResult = judgement(choice[userChoice], computerChoice);
+    setResult(userResult);
+  }
+
+  const judgement = (userC, computerC) => {
+    let userFigth = ''
+
+    /*
+    if(userC.name === computerC.name)
+      userFigth = 'tie';
+    else if(userC.name === 'Rock'){
+      switch (computerC.name) {
+        case "Scissors":
+          userFigth = 'Win'
+          break;      
+        default:
+          userFigth = 'Lose'
+      }
+    }else if(userC.name === 'Scissors'){
+      switch (computerC.name) {
+        case "Paper":
+          userFigth = 'Win'
+          break;      
+        default:
+          userFigth = 'Lose'
+      }
+    }else{
+      switch (computerC.name) {
+        case "Rock":
+          userFigth = 'Win'
+          break;      
+        default:
+          userFigth = 'Lose'
+      }
+    }
+    */
+    if(userC.name === computerC.name)
+      userFigth = 'tie';
+    else if(userC.name === 'Rock'){
+      userFigth = computerC.name === "Scissors" ? 'Win' : 'Lose';
+    }else if(userC.name === 'Scissors'){
+      userFigth = computerC.name === "Paper" ? 'Win' : 'Lose';
+    }else{
+      userFigth = computerC.name === "Rock" ? 'Win' : 'Lose';
+    }
+
+    return userFigth;
   }
 
   const randomChoice = () => {
@@ -41,8 +91,11 @@ function App() {
   return (
     <div>
       <div className="main">        
-        <Box title = "You" item = {userSelect}/>
-        <Box title = "Computer" item = {computerSelect}/>      
+        <Box title = "You" item = {userSelect} result = {result} />
+        <Box title = "Computer" item = {computerSelect} result = {
+          result === 'tie' ? result :
+            result === 'Win' ? 'Lose' : 'Win'
+        } />      
       </div>
 
       <div className='button-box'>
