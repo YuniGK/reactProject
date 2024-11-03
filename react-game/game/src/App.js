@@ -27,14 +27,15 @@ function App() {
     setUserSelect(choice[userChoice]);
 
     let computerChoice = randomChoice();
+    setComputerSelect(computerChoice);
   }
 
   const randomChoice = () => {
       //객체의 키값만 뽑아 배열화해준다.
       let itemArray = Object.keys(choice);
-      let randomItem = Math.floor(Math.random() * 3)
+      let randomItem = Math.floor(Math.random() * itemArray.length)
 
-      setComputerSelect(choice[itemArray[randomItem]]);
+      return choice[itemArray[randomItem]];
   }
 
   return (
