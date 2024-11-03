@@ -1,0 +1,26 @@
+.box{
+  width: 45%; 
+  border: 1px solid #000;
+  text-align: center;
+}
+
+.box .img-box{
+  width: 80%;
+  margin: auto;
+}
+
+.box .img-box img{width: 100%;}
+
+.main
+, .button-box{  
+  display: flex; 
+  align-items: center;
+  justify-self: center;
+  flex-direction: row;
+
+  margin: 40px 0 0;
+}
+
+.main{  
+  justify-content: space-evenly; 
+}
