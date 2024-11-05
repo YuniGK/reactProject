@@ -30,8 +30,6 @@ function App() {
   const getWeatherByCurrentLocation = async (lat, lon) => {
     let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${API_KEY}`;
 
-    setLoading(true)
-
     let response = await fetch(url);
     let data = await response.json();
 
@@ -43,8 +41,6 @@ function App() {
     //https://openweathermap.org/current
     let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${API_KEY}`
 
-    setLoading(true);
-
     let response = await fetch(url);
     let data = await response.json();
 
@@ -52,16 +48,23 @@ function App() {
     setLoading(false);
   }
 
+  const handleCityChange = (city) => {
+      setCity(city);
+  };
+
   //현재위치 기반의 날씨를 가져온다.
   useEffect(()=>{
     /*
     상황에 따라 get~선택해서 불러온다.
     getWeatherByCity("") 처음 호출 시, 도시이름이 없어 오류를 발생시킨다. 
     */
-    if(city==="")
+    if(city===""){
+      setLoading(true)
       getCurrentLocation();
-    else 
+    } else {
+      setLoading(true)  
       getWeatherByCity();
+    }      
   }, [city]);
 
   return (
@@ -80,7 +83,9 @@ function App() {
           : (
             <div className='weather-box'>
               <WeatherBox weather={weather} />
-              <WeatherButton cityList={cityList} setCity={setCity} />
+              <WeatherButton cityList={cityList} 
+                selectedCity={city}
+                handleCityChange={handleCityChange} />
             </div>
           )
         }
