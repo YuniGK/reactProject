@@ -23,3 +23,7 @@ https://openweathermap.org/api
 #리액트 부트스트랩
 https://react-bootstrap.netlify.app/docs/getting-started/introduction
 npm install react-bootstrap bootstrap
+
+#스피너
+https://www.npmjs.com/package/react-spinners
+npm i react-spinners

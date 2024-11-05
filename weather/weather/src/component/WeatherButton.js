@@ -12,8 +12,9 @@ const WeatherButton = ({cityList, setCity}) => {
         <Button variant="dark" onClick={()=>{setCity('New York')}} >New York</Button>
         <Button variant="dark" onClick={()=>{setCity('Paris')}} >Paris</Button>
         
-        {cityList && cityList.map((item) => {
-            <Button variant="dark" onClick={()=>{setCity(item)}} >{item}</Button>  
+        {cityList?.map((item, idx) => {
+          console.log(item,' / ',idx);
+            <Button variant="dark" key={idx} onClick={()=>{setCity(item)}} >{item}</Button>  
         })}
       </ButtonGroup>
     </div>
