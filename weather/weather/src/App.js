@@ -67,17 +67,23 @@ function App() {
   return (
     <div>
       <div className='contenter-box'>
-        <ClipLoader
-          color="#f88c6b"
-          loading={loading}
-          size={150}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-        <div className='weather-box'>
-          <WeatherBox weather={weather} />
-          <WeatherButton cityList={cityList} setCity={setCity} />
-        </div>
+        {
+          loading ? (
+            <ClipLoader
+              color="#f88c6b"
+              loading={loading}
+              size={150}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          )
+          : (
+            <div className='weather-box'>
+              <WeatherBox weather={weather} />
+              <WeatherButton cityList={cityList} setCity={setCity} />
+            </div>
+          )
+        }
       </div>
     </div>
   );
