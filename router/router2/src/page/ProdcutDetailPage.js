@@ -3,12 +3,11 @@ import { useParams } from 'react-router'
 
 const ProdcutDetailPage = () => {
     //파라미터 보내기
-    const params = useParams();
-    console.log('params ',params);
-    //params {id : 1}
+    const {id} = useParams();
+
   return (
     <div>
-        <h2>ProdcutDetailPage</h2>
+        <h2>ProdcutDetailPage {id}</h2>
     </div>
   )
 }
