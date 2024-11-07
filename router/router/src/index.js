@@ -9,11 +9,18 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import Homepage from './page/Homepage';
+import Aboutpage from './page/Aboutpage';
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <Homepage />
   },
+  {
+    path: "/about",
+    element: <Aboutpage />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
