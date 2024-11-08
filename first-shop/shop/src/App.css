@@ -12,3 +12,8 @@ width: 100%;}
 .menu-content .menu li{margin: 0 15px;}
 
 .search-box{position: absolute; right: 5%; padding: 0 5px; border-bottom: 1px solid #000;}
+
+.product-all ul{display: flex; flex-wrap: wrap;}
+.product-all li{width: 20%; margin: 0 0 40px;}
+.product-all img{width: 100%;}
+.product-all .title-box{margin: 10px 0;}
