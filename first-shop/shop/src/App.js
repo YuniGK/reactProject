@@ -6,8 +6,12 @@ import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import ProductDetail from './page/ProductDetail';
 import Navbar from './component/Navbar';
+import { useState } from 'react';
 
 function App() {
+  //true - 로그인 함 / false - 로그인 안됨
+  const [authenticate, setAuthenticate] = useState(false);
+
   return (
     <div>
       <Navbar />
