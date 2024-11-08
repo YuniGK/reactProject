@@ -13,7 +13,10 @@ width: 100%;}
 
 .search-box{position: absolute; right: 5%; padding: 0 5px; border-bottom: 1px solid #000;}
 
-.product-all ul{display: flex; flex-wrap: wrap;}
-.product-all li{width: 20%; margin: 0 0 40px;}
-.product-all img{width: 100%;}
-.product-all .title-box{margin: 10px 0;}
+.product-all .item-box{margin: 0 0 40px;}
+.product-all .img-box{overflow: hidden;}
+.product-all img{width: 100%; opacity: 1; transform: scale(1); transition: .5s ease-in-out;}
+.product-all .item-box:hover img{opacity: .4; transform: scale(1.2);}
+.product-all .title-box{margin: 10px 0; overflow-wrap: break-word; word-break: keep-all;}
+.product-all .choice{color: #710193;}
+.product-all .new {color: red;}

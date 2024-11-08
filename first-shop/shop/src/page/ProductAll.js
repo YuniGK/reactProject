@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../component/ProductCard';
+import { Col, Container, Row } from 'react-bootstrap';
 
 const ProductAll = () => {
   const [productList, setProductList] = useState([]);
@@ -19,16 +20,18 @@ const ProductAll = () => {
 
   return (
     <div className='product-all'>
-      <ul>
-        {
-          productList &&
-            productList.map((item) => (
-              <li key={item.id}>
-                <ProductCard item={item} />
-              </li>
-            ))
-        }
-      </ul>
+      <Container>
+        <Row>
+          {
+            productList &&
+              productList.map((item) => (              
+                  <Col xs={12} md={4} lg={3} key={item.id}>
+                    <ProductCard item={item} />
+                  </Col>              
+              ))
+          }
+        </Row>
+      </Container>
     </div>
   )
 }
