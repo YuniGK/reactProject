@@ -4,8 +4,8 @@
 .logo-content img{width: 100px;}
 
 .login-button{justify-content: flex-end; align-items: center; display: flex;
-width: 100%;}
-.login-button h3{margin: 0 0 0 10px;}
+width: 100%; cursor: pointer;}
+.login-button h4{margin: 0 0 0 10px;}
 
 .menu-content{display: flex; justify-content: center; margin: 20px 0 0;}
 .menu-content .menu {display: flex;}
