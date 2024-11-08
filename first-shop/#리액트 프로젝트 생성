@@ -34,3 +34,8 @@ npm install react-router@6 react-router-dom@6
 #fontawesome.com
 https://docs.fontawesome.com/v5/web/use-with/react
 https://docs.fontawesome.com/web/use-with/react
+
+#json-server
+https://www.npmjs.com/package/json-server
+root=>db.json파일 생성 
+터미널 npx json-server db.json
