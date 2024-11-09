@@ -7,6 +7,7 @@ import Login from './page/Login';
 import ProductDetail from './page/ProductDetail';
 import Navbar from './component/Navbar';
 import { useEffect, useState } from 'react';
+import PrivateRoute from './router/PrivateRoute';
 
 function App() {
   //true - 로그인 함 / false - 로그인 안됨
@@ -16,18 +17,13 @@ function App() {
 
   },[authenticate]);
 
-  //로그인 및 접근 권한이 설정되어 있는 페이지 접속 방지
-  const PrivateRoute = () => {
-    return authenticate === true ? <ProductDetail /> : <Navigate to="/login" />
-  }
-
   return (
     <div>
       <Navbar setAuthenticate={setAuthenticate} authenticate={authenticate} />
       <Routes>
         <Route path='/' element={<ProductAll />} / >
         <Route path='/login' element={<Login setAuthenticate={setAuthenticate} />} / >
-        <Route path='/product/:id' element={<PrivateRoute />} />
+        <Route path='/product/:id' element={<PrivateRoute authenticate={authenticate} />} />
       </Routes>
     </div>
   );
