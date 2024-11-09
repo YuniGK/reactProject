@@ -1,9 +1,16 @@
 import React from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { useNavigate } from 'react-router';
 
-const Login = () => {
+const Login = ({setAuthenticate}) => {
+  let navigate = useNavigate();
   const loginUser = (e) => {
     e.preventDefault();
+
+    setAuthenticate(true);
+
+    if(setAuthenticate)
+      navigate('/');
   };
 
   return (
