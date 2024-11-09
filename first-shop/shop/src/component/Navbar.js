@@ -22,6 +22,14 @@ const Navbar = ({authenticate, setAuthenticate}) => {
         navigae('/')
     }
 
+    const search = (e) => {
+        if(e.key === 'Enter'){
+            let keyword = e.target.value;
+
+            navigae(`/?q=${keyword}`)
+        }
+    }
+
   return (
     <div className='nav-content'>
         {
@@ -52,7 +60,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
             </ul>
             <div className='search-box'>
                 <FontAwesomeIcon icon={faSearch} />
-                <input type='text'></input>
+                <input type='text' onKeyDown={(e) => search(e)} />
             </div>
         </div>
     </div>
