@@ -13,7 +13,8 @@ function App() {
   const increase = () => {
     //액션을 넣는다. 액션은 type(액션의 이름), payload(선택사항)로 구성된다.
     //dispatch({type : , payload : })
-    dispatch({type : "INCREMENT"})
+    //dispatch({type : "INCREMENT"})
+    dispatch({type : "INCREMENT", payload : {num : 5}})
   }
 
   const decrement = () => {
