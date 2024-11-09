@@ -11,6 +11,8 @@ function reducer(state = initialState, action){
         //내용을 복사하며 주소를 갱신하게 되어 
         //store에서 새로운 값을 받았다고 인식 할 수 있게 한다.
         return {...state, count : state.count+1}
+    }else if(action.type === 'DECREMENT'){
+        return {...state, count : state.count-1}
     }
 
     return {...state};

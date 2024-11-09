@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
+import Box from './component/Box';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,10 +16,17 @@ function App() {
     dispatch({type : "INCREMENT"})
   }
 
+  const decrement = () => {
+    dispatch({type : "DECREMENT"})
+  }
+
   return (
     <div>
       <h3>{count}</h3>
       <button onClick={increase}>증가</button>
+      <button onClick={decrement}>감소</button>
+
+      <Box />
     </div>
   );
 }
