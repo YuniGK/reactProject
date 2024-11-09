@@ -52,3 +52,11 @@ Package.json 설정 후 npm run dev로 하면 실행이 가능하다.
 npm uninstall -g json-server 서버 삭제 후
 npm install -g json-server@0.17.0 <- 원하는 버전으로 변경
 
+#react redux
+https://ko.redux.js.org/introduction/getting-started/
+
+#react-redux
+https://react-redux.js.org/
+npm i react-redux@8
+
+
