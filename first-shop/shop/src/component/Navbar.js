@@ -4,6 +4,7 @@ import React, { useEffect } from 'react'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const Navbar = ({authenticate, setAuthenticate}) => {
     const menuList = ['Women', 'Men', 'Baby', 'Kids', 'Home', 'Sale'];
@@ -11,15 +12,6 @@ const Navbar = ({authenticate, setAuthenticate}) => {
 
     const goToLogin = () => {
         navigae('/login');
-    }
-
-    const goToLogout = () => {
-        setAuthenticate(false);
-        navigae('/');
-    }
-
-    const goToMain = () => {
-        navigae('/')
     }
 
     const search = (e) => {
@@ -34,7 +26,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
     <div className='nav-content'>
         {
             authenticate ?
-            <div className='login-button' onClick={goToLogout}>
+            <div className='login-button' onClick={()=>setAuthenticate(false)}>
                 <FontAwesomeIcon icon={faUser} />
                 <h4>로그아웃</h4>
             </div>
@@ -45,8 +37,10 @@ const Navbar = ({authenticate, setAuthenticate}) => {
             </div>            
         }        
 
-        <div className='logo-content' onClick={goToMain}>
-            <img src={logo} alt='logo' />
+        <div className='logo-content'>
+            <Link to="/">
+                <img src={logo} alt='logo' />
+            </Link>
         </div>
 
         <div className='menu-content'>
