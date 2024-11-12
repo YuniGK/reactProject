@@ -9,8 +9,8 @@ const ContactForm = () => {
     //액션을 보내기위해서는 dispatch가 필요하다.
     const dispatch = useDispatch();
 
-    const addContact = (event) => {
-        event.preventdefault();
+    const addContact = (e) => {
+        e.preventDefault();
 
         //dispatch({type: "액션명", payload : "파라미터"});
         dispatch({type: "ADD_CONTACT", payload : {name, phoneNumber}});

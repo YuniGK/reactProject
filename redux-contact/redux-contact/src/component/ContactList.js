@@ -1,13 +1,16 @@
 import React from 'react'
 import SearchBox from './SearchBox'
 import ContactItem from './ContactItem'
+import { useSelector } from 'react-redux'
 
 const ContactList = () => {
+  const contactList = useSelector(state => state.contactList);//store정보를 읽어온다.
   return (
     <div>
         <SearchBox />
 
-        <ContactItem />
+        {contactList.map(item => <ContactItem item={item} />
+        )}
     </div>
   )
 }
