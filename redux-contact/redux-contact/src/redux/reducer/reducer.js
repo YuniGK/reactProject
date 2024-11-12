@@ -5,15 +5,16 @@ let initialState = {
 };
 
 function reducer(state=initialState, action){
-    switch(action.type){
+    const {type, payload} = action;//호출을 통해 action.type
+    switch(type){//action.type -> type로 줄인다.
         case "ADD_CONTACT" :
             //state값에 추가로 내용을 붙여준다.
             return{...state
                 , contactList: [
                     ...state.contactList
                     , {
-                        name : action.payload.name
-                        , phoneNumber: action.payload.phoneNumber
+                        name : payload.name//action.payload
+                        , phoneNumber: payload.phoneNumber
                     }
                 ]
             };
