@@ -12,7 +12,8 @@ const ContactForm = () => {
     const addContact = (event) => {
         event.preventdefault();
 
-        dispatch();
+        //dispatch({type: "액션명", payload : "파라미터"});
+        dispatch({type: "ADD_CONTACT", payload : {name, phoneNumber}});
     }
   return (
     <div>
