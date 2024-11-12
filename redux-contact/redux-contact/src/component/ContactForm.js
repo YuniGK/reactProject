@@ -15,7 +15,7 @@ const ContactForm = () => {
 
             <Form.Group className="mb-3" controlId="formPhoneNumber">
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control type="number" placeholder="Enter Phone Number" onChange={(event)=>setName(event.target.value)} />
+                <Form.Control type="number" placeholder="Enter Phone Number" onChange={(event)=>setPhoneNumber(event.target.value)} />
             </Form.Group>
        
             <Button variant="primary" type="submit">
