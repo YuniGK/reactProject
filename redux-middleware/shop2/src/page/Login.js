@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { authenticateAction } from '../redux/actions/authenticateAction';
+import { getLogin } from '../redux/reducers/authenticateSlice';
 
 const Login = () => {
   const authenticate = useSelector((state) => state.auth.authenticate);  
@@ -16,7 +16,7 @@ const Login = () => {
   const loginUser = (e) => {
     e.preventDefault();
 
-    dispatch(authenticateAction.login(id, password))
+    dispatch(getLogin(id, password))
   };
 
   useEffect(()=>{   

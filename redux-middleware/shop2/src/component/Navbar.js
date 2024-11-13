@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import logo from '../images/o-logo.jpg'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { authenticateAction } from '../redux/actions/authenticateAction'
+import { getLogOut } from '../redux/reducers/authenticateSlice'
 
 const Navbar = () => {
     const authenticate = useSelector((state) => state.auth.authenticate);  
@@ -29,7 +29,7 @@ const Navbar = () => {
     }
 
     const goToLogout = () => {
-        dispatch(authenticateAction.logout());
+        dispatch(getLogOut());
     }
 
   return (

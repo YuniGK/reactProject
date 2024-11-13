@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { productAction } from '../redux/actions/productAction'
+import { getSingleProducts } from '../redux/reducers/productSlice'
 
 const ProductDetail = () => { 
-  const [producItem, setProducItem] = useState([]);
+  const producItem = useSelector((state)=>state.product.selectedItem);
+
   const dispatch = useDispatch();
 
   const {id} = useParams();
 
   const getProduct = async () => {
-    dispatch(productAction.getProductDetail(id))
+    dispatch(getSingleProducts(id))
   };
   
   useEffect(()=>{
@@ -33,7 +34,7 @@ const ProductDetail = () => {
                 <Form.Select aria-label="Default select example">
                   <option>size select</option>
                   {
-                    producItem.size?.map((size, idx)=>(
+                    producItem?.size.map((size, idx)=>(
                       <option value={size} key={idx} >{size}</option>
                     ))
                   }
