@@ -15,6 +15,11 @@ function authenticateReducer(state = initialState, action){
                 , password : payload.password
                 , authenticate : true
             };
+        case "LOGOUT_SUCCESS" :
+            return {
+                ...state
+                , authenticate : false
+            };
         default:
             return {...state};
     }

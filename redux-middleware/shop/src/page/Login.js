@@ -1,24 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { authenticateAction } from '../redux/actions/authenticateAction';
 
-const Login = ({setAuthenticate}) => {
+const Login = () => {
+  const authenticate = useSelector((state) => state.auth.authenticate);  
+
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
-
   let navigate = useNavigate();
+
   const loginUser = (e) => {
     e.preventDefault();
 
     dispatch(authenticateAction.login(id, password))
-
-    if(setAuthenticate)
-      navigate('/');
   };
+
+  useEffect(()=>{   
+    if(authenticate)
+      navigate('/');
+  },[authenticate]);
 
   return (
     <Container>

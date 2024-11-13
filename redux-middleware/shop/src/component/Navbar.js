@@ -5,8 +5,14 @@ import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { authenticateAction } from '../redux/actions/authenticateAction'
 
-const Navbar = ({authenticate, setAuthenticate}) => {
+const Navbar = () => {
+    const authenticate = useSelector((state) => state.auth.authenticate);  
+
+    const dispatch = useDispatch();
+
     const menuList = ['Women', 'Men', 'Baby', 'Kids', 'Home', 'Sale'];
     const navigae = useNavigate();
 
@@ -22,11 +28,15 @@ const Navbar = ({authenticate, setAuthenticate}) => {
         }
     }
 
+    const goToLogout = () => {
+        dispatch(authenticateAction.logout());
+    }
+
   return (
     <div className='nav-content'>
         {
             authenticate ?
-            <div className='login-button' onClick={()=>setAuthenticate(false)}>
+            <div className='login-button' onClick={goToLogout}>
                 <FontAwesomeIcon icon={faUser} />
                 <h4>로그아웃</h4>
             </div>
