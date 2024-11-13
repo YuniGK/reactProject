@@ -65,3 +65,8 @@ npm i react-redux@8
 https://github.com/reduxjs/redux-thunk
 
 npm install redux-thunk
+
+#redux-devtools
+https://www.npmjs.com/package/@redux-devtools/extension?activeTab=readme
+npm i @redux-devtools/extension
+
