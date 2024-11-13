@@ -3,7 +3,8 @@ import ProductCard from '../component/ProductCard';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { productAction } from '../redux/actions/productAction'
+
+import { fetchProducts } from '../redux/reducers/productSlice'
 
 const ProductAll = () => {
   //const productList = useSelector((state)=>state.productList);
@@ -17,7 +18,7 @@ const ProductAll = () => {
   const getProducts = () => {
     let searchQuery = query.get('q') || "";
    
-    dispatch(productAction.getProducts(searchQuery));
+    dispatch(fetchProducts(searchQuery));
   };
   
   useEffect(() => {

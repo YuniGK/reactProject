@@ -1,4 +1,4 @@
-import { productActions } from "../reducers/productReducer";
+import { productActions } from "../reducers/productSlice";
 
 function getProducts(searchQuery){
     //getState - state상태를 가져온다.
@@ -24,4 +24,4 @@ function getProductDetail(id){
     }
 }
 
-export const productAction={getProducts, getProductDetail};
+export const productAction={getProductDetail};
