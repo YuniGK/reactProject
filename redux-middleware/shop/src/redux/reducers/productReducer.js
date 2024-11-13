@@ -7,7 +7,7 @@ function productReducer(state = initialState, action){
 
     switch (type) {
         case "GET_PRODUCT_SUCCESS":
-            return {...state, productReducer : payload.data};
+            return {...state, productList : payload.data};
         default:
             return {...state};
     }
