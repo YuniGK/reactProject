@@ -37,6 +37,9 @@ https://docs.fontawesome.com/web/use-with/react
 
 #json-server
 https://www.npmjs.com/package/json-server
+
+npm i json-server
+
 root=>db.json파일 생성 
 터미널 npx json-server db.json 
 3000포트를 사용해 리액트와 중복되어 포트 설정을 따로 할 수 있는 아래의 명령어를 사용한다.
