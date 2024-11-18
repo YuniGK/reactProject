@@ -19,6 +19,13 @@ const ReactQueryPage = () => {
         queryKey: ['posts']
         , queryFn: fetchPost
         , retry: 2//실패시 몇번 다시 시도할지 정해준다. 기본 3번 더 시도한다.
+        , staleTime: 5000
+        /* fresh, state구분을 위한 시간 설정
+        기본 값은 0 -> 카테고리 같이 변경이 자주 없는 경우 사용한다. 
+        한번 호출 후 캐시의 내용을 사용한다. 
+        
+        지정한 5초 만큼 fresh상태를 유지한다. fresh 상태를 유지한 상태에서 페이지 접속 시
+        api호출 하지 않는다. */
         , select: data => {
             return data.data//data값을 가져올 때, data값만 가져온다.
         }
