@@ -12,12 +12,17 @@ const ReactQueryPage = () => {
         }
     });
     */
-   const fetchPost = () => {return axios.get('http://localhost:4000/posts')}
+
+   const fetchPost = (queryData) => {
+        const id = queryData.queryKey[1];
+        return axios.get(`http://localhost:4000/posts/${id}`)
+    }
 
    //페이지 접속 시 바로 실행 됨
    //refetch - 버튼 클릭 시, api호출 하고 싶을 시, 버튼의 온클릭 이벤트에 넣어준다.
    const { isLoading, data, isError, error, refetch} = useQuery({
-        queryKey: ['posts']
+        //queryKey: ['posts']
+        queryKey: ['posts', 1]//디테일 페이지 등 요청 시,
         , queryFn: fetchPost
         , retry: 2//실패시 몇번 다시 시도할지 정해준다. 기본 3번 더 시도한다.
         , enabled: false//초기에 api 호출 하지 않고 버튼 클릭 등 이벤트 후 api 호출된다.
@@ -64,9 +69,11 @@ const ReactQueryPage = () => {
     
   return (
     <div>
+        {/*
         {data?.map(item => (
             <div key={item.id}>{item.title}</div>
         ))}
+        */}
         <button onClick={refetch}>호출</button>
     </div>
   )
