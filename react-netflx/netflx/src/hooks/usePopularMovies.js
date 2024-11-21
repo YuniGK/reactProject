@@ -2,7 +2,8 @@ import {useQuery} from '@tanstack/react-query';
 import api from '../utils/api';
 
 const fetchPopularMovies = () => {
-    return api.get(`/person/popular?language=ko-KR&page=1`);
+    return api.get(`/movie/popular?language=ko-KR&page=1`);    
+    //'https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=1'
 }
 
 export const usePopularMoviesQuery = () => {

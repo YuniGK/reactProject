@@ -10,7 +10,7 @@ const api = axios.create({
     headers: {
         accept: 'application/json',
         Authorization: `Bearer ${API_KEY}`
-    }
+      }
 });
 
 // 요청 인터셉터 추가하기

@@ -4,7 +4,7 @@ import Banner from './compontents/banner/Banner'
 
 const HomePage = () => {
   return (
-    <div>
+    <div className='home-banner'>
       <Banner />
     </div>
   )
