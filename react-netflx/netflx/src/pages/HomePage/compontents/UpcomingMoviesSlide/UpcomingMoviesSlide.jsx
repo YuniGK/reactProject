@@ -39,7 +39,7 @@ const PopularMoviesSlide = () => {
           items: 1,
         }
       };
-
+      
   return (
     <div className='upcoming-movies'>
         <h3 className='title'>개봉예정 영화</h3>
