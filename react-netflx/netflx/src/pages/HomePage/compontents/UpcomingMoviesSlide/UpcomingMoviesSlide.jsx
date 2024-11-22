@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
-import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies'
 import ClipLoader from "react-spinners/ClipLoader";
 import {Alert} from 'react-bootstrap';
-
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-
-import './PopularMoviesSlide.style.css'
 import MovieCard from '../MovieCard/MovieCard';
+import { useUpcomingMovies } from '../../../../hooks/useUpcomingMovies ';
+import './UpcomingMoviesSlide.style.css'
 
 const PopularMoviesSlide = () => {
     let [loading, setLoading] = useState(true);
-    const {data, isLoading, isError, error} = usePopularMoviesQuery();
+    const {data, isLoading, isError, error} = useUpcomingMovies();
 
     if(isLoading){
       <ClipLoader
@@ -43,8 +41,8 @@ const PopularMoviesSlide = () => {
       };
 
   return (
-    <div className='popular-movies'>
-        <h3 className='title'>인기 영화</h3>
+    <div className='upcoming-movies'>
+        <h3 className='title'>개봉예정 영화</h3>
         <Carousel
             infinite={true}
             autoPlaySpeed={1000}
