@@ -4,12 +4,14 @@ import Carousel from 'react-multi-carousel';
 import MovieCard from '../MovieCard/MovieCard';
 import 'react-multi-carousel/lib/styles.css';
 
-const MovieSlider = ({title, data, responsive}) => {
-
+const MovieSlider = ({title, data, responsive}) => {  
+  const size = data? Object.keys(data).length : 0;
   return (
     <div className='movie-slider'>
         <h3 className='title'>{title}</h3>
-        <Carousel
+       {
+        size !== 0 ? (
+          <Carousel
           infinite={true}
           autoPlaySpeed={800}
           customTransition="all .5"
@@ -18,12 +20,16 @@ const MovieSlider = ({title, data, responsive}) => {
           itemClass="movie-slider p-1"
           containerClass='carousel-container'
           responsive={responsive}
-        >
+          >
             
             {data?.map((movie, index) => (
                 <MovieCard key={index} movie={movie} />
             ))}
         </Carousel>
+        )  : (
+          <div></div>
+        )
+       }
     </div>
   )
 }
