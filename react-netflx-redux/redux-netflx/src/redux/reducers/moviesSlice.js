@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import api from "../../utils/api";
 
 let initialState = {
     movieList : []
@@ -7,9 +8,11 @@ let initialState = {
     , error : null
 };
 
-export const fetchMovies = createAsyncThunk('movies', async (searchQuery, thunkAPI)=> {
+export const popularMovies = createAsyncThunk('movies/popular', async (thunkAPI)=> {
     try {
-        
+        let data = await api.get(`/movie/popular?language=ko-KR&page=1`);
+
+        return data.data.results;
     } catch (error) {
         thunkAPI.rejectWithValue(error.message);
     }
@@ -21,16 +24,16 @@ const movieSlice = createSlice({
     , reducers : {},
     extraReducers : (builder)=>{
         builder
-            .addCase(fetchMovies.pending, (state)=>{
+            .addCase(popularMovies.pending, (state)=>{
                 //대기
                 state.isLoading = true;
             })
-            .addCase(fetchMovies.fulfilled, (state, action)=>{
+            .addCase(popularMovies.fulfilled, (state, action)=>{
                 //성공
                 state.isLoading = false;
                 state.movieList = action.payload;
             })
-            .addCase(fetchMovies.rejected, (state, action)=>{
+            .addCase(popularMovies.rejected, (state, action)=>{
                 //에러
                 state.isLoading = false;
                 state.error = action.payload;
