@@ -12,7 +12,7 @@ const HomePage = () => {
 
       <PopularMoviesSlide />
       <TopMoviesSlide />
-      <UpcomingMoviesSlide />
+      <UpcomingMoviesSlide /> 
     </div>
   )
 }

@@ -9,7 +9,7 @@ import { genreMovies } from '../../redux/reducers/moviesSlice'
 const MovieCard = ({movie}) => {
   const dispatch = useDispatch();
   const {gener:genreData} = useSelector((state)=>state.movie);
-  console.log('card',genreData)
+
   useEffect(() => {
     dispatch(genreMovies());
   }, []);
@@ -18,9 +18,13 @@ const MovieCard = ({movie}) => {
     if(!genreData) return [];
     if(!genreIdList) return [];
 
-    const genreNameList = genreIdList.map((id)=>{
-      const genreObj = genreData?.find((genre) => (genre.id === id))
-      return genreObj.name;
+    const genreNameList = genreIdList?.map((id)=>{
+      if(genreData.length !== 0){
+        const genreObj = genreData?.find((genre) => (genre.id === id))
+        return genreObj.name;
+      }else{
+        return []
+      }      
     });
     return genreNameList;
   }

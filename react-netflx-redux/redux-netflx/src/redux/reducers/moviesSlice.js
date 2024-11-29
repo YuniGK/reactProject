@@ -20,7 +20,7 @@ export const popularMovies = createAsyncThunk('movies/popular', async (thunkAPI)
 
 export const topMovies = createAsyncThunk('movies/top', async (thunkAPI)=> {
     try {
-        let data = api.get(`/movie/top_rated?language=ko-KR&page=1`);
+        let data = await api.get(`/movie/top_rated?language=ko-KR&page=1`);
         return data.data;
     } catch (error) {
         thunkAPI.rejectWithValue(error.message);
@@ -29,7 +29,7 @@ export const topMovies = createAsyncThunk('movies/top', async (thunkAPI)=> {
 
 export const upcomingMovies = createAsyncThunk('movies/upcoming', async (thunkAPI)=> {
     try {
-        let data = api.get(`/movie/upcoming?language=ko-KR&page=1`); 
+        let data = await api.get(`/movie/upcoming?language=ko-KR&page=1`); 
         return data.data;
     } catch (error) {
         thunkAPI.rejectWithValue(error.message);
@@ -38,9 +38,9 @@ export const upcomingMovies = createAsyncThunk('movies/upcoming', async (thunkAP
 
 export const genreMovies = createAsyncThunk('movies/genre', async (thunkAPI)=> {
     try {
-        let data = api.get(`/genre/movie/list?language=ko`);    
-        console.log('gen',data)
-        return data.data;
+        let data = await api.get(`/genre/movie/list?language=ko`);
+        console.log('gen',data.data.genres)
+        return data.data.genres;
     } catch (error) {
         thunkAPI.rejectWithValue(error.message);
     }

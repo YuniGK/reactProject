@@ -29,7 +29,7 @@ const Banner = () => {
   
   return (
     <div>
-    {Array.isArray(movieList) && movieList.length !== 0 ?
+    {movieList.length !== 0 ?
       <div className='banner' style={{backgroundImage : "url("+`https://media.themoviedb.org/t/p/w1066_and_h600_bestv2${movieList?.results[0]?.poster_path}`+")"}}>
         <div className='banner-text text-white'>
           <h1>{movieList?.results[0]?.title}</h1>
