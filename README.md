@@ -10,4 +10,5 @@
 ### 8 [redux-contact](https://github.com/YuniGKDev/reactProject/tree/main/redux-contact)
 ### 9 [redux-middleware](https://github.com/YuniGKDev/reactProject/tree/main/redux-middleware)
 ### 10 [react-query](https://github.com/YuniGKDev/reactProject/tree/main/react-query)
-### 11 [react-netflix] ()
+### 11 [react-netflix] (https://github.com/YuniGKDev/reactProject/tree/main/react-netflx)
+### 12 [react-netflix-redux] (https://github.com/YuniGKDev/reactProject/tree/main/react-netflx-redux)
